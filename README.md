@@ -7,11 +7,11 @@
 
 
 ## Tasks and Resources:
-**1. File 1:** Complete part 1.1, 1.2, 1.3, 1.4 //// locally on my machine; when reviewing the written material, keep track of the code you write in either a .R or .RMD file that is saved in the GitHub repo 
-    - https://hbctraining.github.io/Intro-to-R-flipped/schedules/links-to-lessons.html
+**1. File 1:** Complete part [1.1, 1.2, 1.3, 1.4] locally on my machine; Keep track of code when reviewing the written material using .R file in repo
+-    https://hbctraining.github.io/Intro-to-R-flipped/schedules/links-to-lessons.html
 
-**2. File 2:** Complete the below R introduction exercise within Google Colab - once completed, download the notebook and include it into your GitHub notebook  
-    - https://colab.research.google.com/drive/1iz6ILnVGt8Qc6UR1l7oTPou4l6WSrw9S 
+**2. File 2:** Complete the below R introduction exercise within Google Colab and include into repo 
+-   https://colab.research.google.com/drive/1iz6ILnVGt8Qc6UR1l7oTPou4l6WSrw9S 
 
 
 <br> 
