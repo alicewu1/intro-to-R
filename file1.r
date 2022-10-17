@@ -170,3 +170,77 @@ x[order(y)]
 my_df <- attitude[, c(2, 3, 4)]
 head(my_df)
 
+## USER-DEFINED FUNCTIONS
+name_of_function <- function(argument1, argument2) {
+  statements or code that does something
+  return(something)
+}
+
+square_it <- function(x) {
+  square <- x * x
+  return(square)
+} # check env for variable 
+
+# using the variable
+square_it(5)
+
+square_it <- function(x) {
+  10 * 10
+}
+
+
+## EXCERISE 1.3 USER-DEFINED FUNCTIONS:
+# Write a function called multiply_it, which takes two inputs: a numeric value x, and a numeric value y. The function will return the product of these two numeric values, which is x * y. For example, multiply_it(x=4, y=6) will return output 24.
+multiply_it <- function(x, y) {
+  multiply <- x * y
+  return(multiply)
+}
+
+multiply_it(6,4)
+
+
+
+
+## PART 1.4: READING AND INSPECTING DATA ##
+?read.csv
+
+# Create a dataframe by reading in a file 
+metadata <- read.csv(file="data/mouse_exp_design.txt")
+# Check top 6 lines of df using 
+head(metadata)
+
+
+## EXERCISE 1.4 READING IN DATA 
+# Download this tab-delimited .txt file and save it in your project’s data folder.
+# Read it in to R using read.table() and store it as the variable proj_summary. As you use read.table(), keep in mind that:
+#   all the columns in the input text file have column names
+# you want the first column of the text file to be used as row names (hint: look up the input for the row.names = argument in read.table())
+proj_summary <- read.table(file="data/project-summary.txt", header = TRUE, row.names = 1)
+
+# Display the contents of proj_summary in your console
+proj_summary
+
+
+## EXERCISE 1.4 DATA INSPECTION
+# 1. Use the class() function on glengths and metadata, how does the output differ between the two?
+class(glengths) #numeric - datatype
+class(metadata) #dataframe
+
+# 2. Use the summary() function on the proj_summary dataframe, 
+summary(proj_summary)
+## 2.1 what is the median “rRNA_rate”? 0.005345
+
+# 2.2 How long is the samplegroup factor?
+length(samplegroup)
+
+# 3. What are the dimensions of the proj_summary dataframe?
+nrow(proj_summary) # 9 ROWS
+ncol(proj_summary) # 8 COLUMNS
+# OR
+dim(proj_summary) # 9 x 8
+
+# 4. When you use the rownames() function on metadata, what is the data structure of the output?
+str(rownames(metadata)) # characters
+
+# 5. [Optional] How many elements in (how long is) the output of colnames(proj_summary)? Don’t count, but use another function to determine this.
+length(colnames(proj_summary)) # 8
