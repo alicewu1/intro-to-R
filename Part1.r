@@ -244,3 +244,250 @@ str(rownames(metadata)) # characters
 
 # 5. [Optional] How many elements in (how long is) the output of colnames(proj_summary)? Don’t count, but use another function to determine this.
 length(colnames(proj_summary)) # 8
+
+
+#####################
+
+### PART 2.1: DATA WRANGLING: SUBSETTING VECTORS AND VALUES ###
+
+## VECTORS ##
+# create a vector called age
+age <- c(15, 22, 45, 52, 73, 81)
+age
+
+# If we only want the 5th value:
+age[5]
+# If we wanted all values except the fifth,
+age[-5]
+
+# If we wanted more than one element, use [ ]with vector of several index values:
+age[c(3,5,6)]   ## nested
+
+# OR
+## create a vector first then select
+idx <- c(3,5,6) # create vector of the elements of interest
+age[idx]
+
+# select sequences of values in vector 
+age[1:4]
+
+
+## EXERCISE 2.1 DATA WRANGLING WITH VECTORS
+# Create a vector called alphabets with the following letters, C, D, X, L, F.
+alphabets <- c(C, D, X, L, F)
+alphabets
+# Use the associated indices along with [ ] to do the following:
+# only display C, D and F
+alphabets[c(1,2,5)]
+# display all except X
+alphabets[-3]
+# display the letters in the opposite order (F, L, X, D, C)
+alphabets[5:1]
+
+
+# Selecting using indices with logical operators
+age
+## which elements in age vector are greater than 50 (t/R values)
+age >50
+
+# select all values in the age vector over 50 or age less than 18:
+age > 50 | age < 18
+age
+age[age > 50 | age < 18]
+
+# OR
+# create vector first then select
+idx <- age > 50 | age <18
+age[idx]
+
+
+# Indexing with logical operators using the which() function
+# to show output of indices where the values are TRUE
+
+which(age > 50 | age < 18)
+
+age[which(age > 50 | age < 18)]  ## nested
+
+# OR
+## create a vector first then select
+idx_num <- which(age > 50 | age < 18)
+age[idx_num]
+
+# Indexing with logical operators using the which() function
+# to show output of indices where the values are TRUE
+
+which(age > 50 | age < 18)
+
+age[which(age > 50 | age < 18)]  ## nested
+
+# OR
+## create a vector first then select
+idx_num <- which(age > 50 | age < 18)
+age[idx_num]
+
+
+## FACTORS ##
+# categories: low, medium, high
+# Extracting values of the factor with high expression
+expression[expression == "high"] # returns elements in the factor equal to "high"
+
+# The piece of code above was more efficient with nesting; we used a single step instead of two steps as shown below:
+# Step1 (no nesting): idx <- expression == "high"
+# Step2 (no nesting): expression[idx]
+
+
+# EXERCISE 2.1 DATA WRANGLING WITH FACTORS
+# Extract only those elements in [samplegroup] that are not KO (nesting the logical operation is optional).
+samplegroup
+samplegroup[samplegroup != "KO"] # use != for not equal to
+
+
+# To view integer assignments under the hood, use str():
+expression
+
+str(expression)
+# outputs: Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
+
+expression <- factor(expression, levels=c("low", "medium", "high"))     # you can re-factor a factor 
+
+str(expression)
+# outputs: Factor w/ 3 levels "low","medium",..: 1 3 2 3 1 2 3
+
+
+# EXERCISE 2.1 DATA WRANGLING WITH FACTORS 2
+# Use the samplegroup factor we created in a previous lesson, 
+# and relevel it such that KO is the first level followed by CTL and OE.
+samplegroup
+
+samplegroup <- factor(samplegroup, levels=c("KO", "CTL", "OE"))
+str(samplegroup)
+
+
+########################
+
+### PART 2.2: PACKAGES AND LIBRARIES ###
+# check with libraries are loaded in your current R session using:
+sessionInfo() #Print version information about R, the OS and attached or loaded packages
+
+# OR
+
+search() #Gives a list of attached packages
+
+
+# R packages
+install.packages("ggplot2")
+
+
+# Loading Libraries
+library(ggplot2)
+
+
+## EXERCISE 2.2: PACKAGES 
+# The ggplot2 package is part of the tidyverse suite of integrated packages which 
+# was designed to work together to make common data science operations more user-friendly. 
+# We will be using the [tidyverse] suite in later lessons, and so let’s install it. 
+# NOTE: This suite of packages is only available in CRAN.
+install.packages("tidyverse")
+
+
+
+## PART 2.3: DATA WRANGLING: DATAFRAMES, MATRICES, LISTS
+# DATAFRAMES #
+metadata[1, 1] # Extract value 'Wt'
+metadata[1, 3] # Extract value 1 from 1st row, third column
+metadata[3. ] # Extract third row
+metadata[ , 3] # Extract third column 
+metadata[ , 3, drop = FALSE]# Extract third column as a df
+
+metadata[ ,1:2] # create df using first 2 columns
+metadata[c(1,3,6), ]# create df using row 1, 3, 6
+
+# Extract celltype column for the first 3 samples
+metadata[c("sample1", "sample2", "sample3") , "celltype"] 
+
+colnames(metadata) # check column names of metadata
+rownames(metadata) # Check row names of metadata
+
+metadata$genotype # Extract genotype column using df_name$column_name
+metadata$genotype[1:5] # Extract first 5 values of genotype column
+
+
+
+## EXERCISE 2.3: DATA WRANGLING WITH DATAFRAMES
+# Return a data frame with only the genotype and replicate column values for sample2 and sample8.
+metadata
+metadata[c("sample2", "sample8"), c("genotype", "replicate")]
+# Return the fourth and ninth values of the replicate column.
+metadata[ c(4,9), "replicate"]
+# Extract the replicate column as a data frame.
+metadata[ ,3, drop = FALSE]
+# OR
+metadata$replicate
+
+# Selecting using indices with logical operators
+## Looking for values equal to typeA (outputs True/False values)
+metadata$celltype == "typeA"
+
+# Extract the TRUE values from the above
+logical_idx <- metadata$celltype == "typeA"
+metadata[logical_idx, ]
+
+# or which() also outputs the TRUE values
+which(metadata$celltype =="typeA")
+
+# returns the values one through six, indicating that the first 6 values or rows are true, or equal to typeA
+idx <- which(metadata$celltype == "typeA")
+metadata[idx, ]
+
+# Extract the rows of the metadata data frame for only the replicates 2 and 3
+which(metadata$replicate > 1)
+
+
+idx <- which(metadata$replicate > 1) # save those indices into a variable idx
+# use idx variable to extract those corresponding rows from the metatable
+metadata[idx, ]
+
+# OR: nesting to perform command in a single step
+metadata[which(metadata$replicate > 1), ]
+
+# save output as new variable sub_meta
+sub_meta <- metadata[which(metadata$replicate > 1), ]
+
+## EXERCISE 2.3: DATA WRANGLING WITH DATAFRAM AND MATRICES
+# Subset the metadata dataframe to return only the rows of data with a genotype of KO.
+which(metadata$genotype == "KO") # outputs the row numbers where value is TRUE
+metadata # double-check
+
+
+## LISTS ##
+# Use [[ ]] to select specific component of list
+list1[[2]]
+
+comp2 <- list1[[2]]
+class(comp2) # shows datatype, comp2 is dataframe
+
+list1[[1]] 
+# outputs: [1] "ecoli" "human" "corn" 
+
+# To reference first element of first component use [ ]
+list1[[1]][1]
+# outputs: ecoli
+
+
+## EXERCISE 2.3: DATA WRANGLING USING LISTS
+# Create a list named random with the following components: metadata, age, list1, samplegroup, and number.
+random <- list(metadata, age, list1, samplegroup, number)
+random
+
+#Extract the samplegroup component.
+random[[4]]  # using number bc names for components havent been set yet
+
+
+## EXERCISE 2.3: DATA WRANGLING WITH LISTS 2
+# Let’s practice combining ways to extract data from the data structures we have covered so far:
+# Set names for the random list you created in the last exercise.
+names(random) <- c("metadata", "age", "list1", "samplegroup", "number")
+names(random)
+
+# Extract the age component using the $ notation
+random$age
