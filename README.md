@@ -7,11 +7,13 @@
 
 
 ## Tasks and Resources:
-**1. File 1:** Complete part [1.1, 1.2, 1.3, 1.4] locally on my machine; Keep track of code when reviewing the written material using .R file in repo
+**Part 1:** Complete part [1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3] locally on my machine; Keep track of code when reviewing the written material using .R file in repo
 -    https://hbctraining.github.io/Intro-to-R-flipped/schedules/links-to-lessons.html
 
-**2. File 2:** Complete the below R introduction exercise within Google Colab and include into repo 
--   https://colab.research.google.com/drive/1iz6ILnVGt8Qc6UR1l7oTPou4l6WSrw9S 
+**Part 2:** Complete Chapter 1, 2, 3 from this book:
+- https://bookdown.org/vaabe/bookdown-demo/the-r-environment.html
+
+**Additional Resource:** https://colab.research.google.com/drive/1iz6ILnVGt8Qc6UR1l7oTPou4l6WSrw9S 
 
 
 <br> 
@@ -34,3 +36,13 @@
 - Demonstrate how to read existing data into R
 - Utilize base R functions to inspect data structures
 
+## Part 2 Learning Objectives:
+### **2.1**
+- Demonstrate how to subset vectors and factors
+- Explain the use of logical operators when subsetting vectors and factors
+- Demonstrate how to relevel factors in a desired order
+### **2.2**
+- Explain different ways to install external R packages
+- Demonstrate how to load a library and how to find functions specific to a package
+### **2.3**
+- Demonstrate how to subset, merge, and create new datasets from existing data structures in R.
