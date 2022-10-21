@@ -3,23 +3,32 @@
 
 
 ## This repo aims to complete:
-- the following tasks and learning objectives from Part 1 Intro to R 
+- introductory statistics exercises to R and R Studio using the resources below
+- practice data wrangling and data visualization using R
 
  <br>
 
 # Tasks and Resources:
-**Part 1:** Complete part [1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3] locally on my machine; Keep track of code when reviewing the written material using .R file in repo
--       https://hbctraining.github.io/Intro-to-R-flipped/schedules/links-to-lessons.html
+**Part 1:** Complete part [1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3] locally on my machine.  Keep track of code when reviewing the written material using **Part1.r** file in repo
+-    https://hbctraining.github.io/Intro-to-R-flipped/schedules/links-to-lessons.html
 
-**Part 2:** Complete Chapter 1, 2, 3 from this book:
--      https://bookdown.org/vaabe/bookdown-demo/the-r-environment.html
+**Part 2:** Complete Chapter 1, 2, 3 from this book. Use Google Colab to take coding notes **Part2.ipynb**:
+-    https://bookdown.org/vaabe/bookdown-demo/the-r-environment.html
 
 **Additional Resource:** https://colab.research.google.com/drive/1iz6ILnVGt8Qc6UR1l7oTPou4l6WSrw9S 
 
 
 <br> 
 
-# Part 1 Learning Objectives:
+# Datasets Used:
+- UK Gender Pay Gap 2022-2023: https://gender-pay-gap.service.gov.uk/viewing/download 
+- Iris Dataset: https://datahub.io/machine-learning/iris
+
+
+<br>
+
+
+## Learning Objectives:
 ### **1.1**
 - Describe what R and RStudio are.
 - Interact with R using RStudio.
